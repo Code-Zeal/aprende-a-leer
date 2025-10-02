@@ -28,7 +28,11 @@ app.use(
 );
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
 app.use("/", router);
+
 const port = process.env.PORT || 3000;
 app.use('/data', express.static("/data"));
 //  sendNotificationEmail("quinterodeilimar114@gmail.com","Inglés","Números de 1 al 100","20 pts")
