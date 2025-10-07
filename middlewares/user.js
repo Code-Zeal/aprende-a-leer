@@ -23,3 +23,16 @@ export const GetInfo = async (req, res) => {
       .json({ message: "Error del servidor", error: error.message });
   }
 };
+
+export const GetStudents = async (req, res) => {
+  try {
+      const students = await User.findAll();
+
+      return res.status(200).json(students);
+     
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ message: "Error del servidor", error: error.message });
+  }
+}

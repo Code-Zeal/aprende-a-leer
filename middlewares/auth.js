@@ -10,14 +10,7 @@ export const Login = async (req, res) => {
       let usuario = await User.findOne({ where: { email:email?.toLowerCase() } });
 
       if (!usuario) {
-        // Si el usuario no existe, lo creamos
-        // usuario = await User.create({
-        //   name,
-        //   email:email?.toLowerCase(),
-        //   yearAndSection,
-        //   classrooms: [],
-        // });
-        throw new Error("Usuario no existe");
+        throw new Error("no existe");
       }
       if(usuario.password !== password){
         throw new Error("Contraseña incorrecta");
